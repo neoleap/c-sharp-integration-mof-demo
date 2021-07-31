@@ -1,0 +1,143 @@
+﻿@model IEnumerable<CSharpDemo.Models.trandata>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.amt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.currencycode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.action)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.responseURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.errorURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.udf1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.udf2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.udf3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.udf4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.udf5)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.udf6)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.udf7)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.udf8)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.udf9)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.udf10)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.langid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.payorIDType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.payorIDNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.amt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.currencycode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.action)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.responseURL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.errorURL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.udf1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.udf2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.udf3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.udf4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.udf5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.udf6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.udf7)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.udf8)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.udf9)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.udf10)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.langid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.payorIDType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.payorIDNumber)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

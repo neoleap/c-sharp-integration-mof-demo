@@ -1,0 +1,132 @@
+﻿@model CSharpDemo.Models.trandata
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>trandata</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.password)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.amt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.amt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.currencycode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.currencycode)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.action)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.action)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.responseURL)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.responseURL)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.errorURL)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.errorURL)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.udf1)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.udf1)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.udf2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.udf2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.udf3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.udf3)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.udf4)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.udf4)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.udf5)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.udf5)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.udf6)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.udf6)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.udf7)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.udf7)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.udf8)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.udf8)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.udf9)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.udf9)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.udf10)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.udf10)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.langid)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.langid)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.payorIDType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.payorIDType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.payorIDNumber)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.payorIDNumber)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

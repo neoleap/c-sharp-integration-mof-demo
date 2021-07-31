@@ -1,0 +1,129 @@
+﻿@model CSharpDemo.Models.trandata
+
+@{
+    ViewData["Title"] = "sendRequest";
+}
+
+<h1>Send Request</h1>
+
+<h4>trandata</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="sendRequest">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="id" class="control-label"></label>
+                <input asp-for="id" class="form-control" />
+                <span asp-validation-for="id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="password" class="control-label"></label>
+                <input asp-for="password" class="form-control" />
+                <span asp-validation-for="password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="amt" class="control-label"></label>
+                <input asp-for="amt" class="form-control" />
+                <span asp-validation-for="amt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="currencycode" class="control-label"></label>
+                <input asp-for="currencycode" class="form-control" />
+                <span asp-validation-for="currencycode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="action" class="control-label"></label>
+                <input asp-for="action" class="form-control" />
+                <span asp-validation-for="action" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="responseURL" class="control-label"></label>
+                <input asp-for="responseURL" class="form-control" />
+                <span asp-validation-for="responseURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="errorURL" class="control-label"></label>
+                <input asp-for="errorURL" class="form-control" />
+                <span asp-validation-for="errorURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="udf1" class="control-label"></label>
+                <input asp-for="udf1" class="form-control" />
+                <span asp-validation-for="udf1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="udf2" class="control-label"></label>
+                <input asp-for="udf2" class="form-control" />
+                <span asp-validation-for="udf2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="udf3" class="control-label"></label>
+                <input asp-for="udf3" class="form-control" />
+                <span asp-validation-for="udf3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="udf4" class="control-label"></label>
+                <input asp-for="udf4" class="form-control" />
+                <span asp-validation-for="udf4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="udf5" class="control-label"></label>
+                <input asp-for="udf5" class="form-control" />
+                <span asp-validation-for="udf5" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="udf6" class="control-label"></label>
+                <input asp-for="udf6" class="form-control" />
+                <span asp-validation-for="udf6" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="udf7" class="control-label"></label>
+                <input asp-for="udf7" class="form-control" />
+                <span asp-validation-for="udf7" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="udf8" class="control-label"></label>
+                <input asp-for="udf8" class="form-control" />
+                <span asp-validation-for="udf8" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="udf9" class="control-label"></label>
+                <input asp-for="udf9" class="form-control" />
+                <span asp-validation-for="udf9" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="udf10" class="control-label"></label>
+                <input asp-for="udf10" class="form-control" />
+                <span asp-validation-for="udf10" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="langid" class="control-label"></label>
+                <input asp-for="langid" class="form-control" />
+                <span asp-validation-for="langid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="payorIDType" class="control-label"></label>
+                <input asp-for="payorIDType" class="form-control" />
+                <span asp-validation-for="payorIDType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="payorIDNumber" class="control-label"></label>
+                <input asp-for="payorIDNumber" class="form-control" />
+                <span asp-validation-for="payorIDNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="SendRequest" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<hr>
+<div>
+    <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
