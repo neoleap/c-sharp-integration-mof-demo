@@ -19,6 +19,8 @@ namespace CSharpDemo.Models
 
         public string action { get; set; }
 
+        public string trackid { get; set; }
+
         public string responseURL { get; set; }
 
         public string errorURL { get; set; }
@@ -59,7 +61,7 @@ namespace CSharpDemo.Models
         public override string ToString()
         {
             return "id=" + id + "&password=" + password + "&amt=" + amt + "&currencycode=" + currencycode + "&action=" + action 
-                + "&responseURL=" + responseURL + "&errorURL=" + errorURL + "&udf1=" + udf1 + "&udf2=" + udf2 + "&udf3=" + udf3
+                + "&trackid="+trackid+"&responseURL=" + responseURL + "&errorURL=" + errorURL + "&udf1=" + udf1 + "&udf2=" + udf2 + "&udf3=" + udf3
                 + "&udf4=" + udf4 + "&udf5=" + udf5 + "&udf6=" + udf6 + "&udf7=" + udf7 + "&udf8=" + udf8
                 + "&udf9=" + udf9 + "&udf10=" + udf10 + "&langid=" + langid + "&payorIDType=" + payorIDType + "&payorIDNumber=" + payorIDNumber + "&billDetails=" + billDetails ;
         }

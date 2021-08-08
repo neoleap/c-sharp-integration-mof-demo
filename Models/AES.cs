@@ -69,15 +69,21 @@ namespace CSharpDemo
 
         public string Decrypt(string cipherData)
         {
-            byte[] key = Encoding.UTF8.GetBytes(SAMPLE_KEY);
+        byte[] key = Encoding.UTF8.GetBytes(SAMPLE_KEY);
             byte[] iv = Encoding.UTF8.GetBytes(SAMPLE_IV);
+
+            var resultantArray = new byte[cipherData.Length / 2];
+            for (var i = 0; i < resultantArray.Length; i++)
+            {
+                resultantArray[i] = System.Convert.ToByte(cipherData.Substring(i * 2, 2), 16);
+            }
 
             try
             {
                 using (var rijndaelManaged =
                        new RijndaelManaged { Key = key, IV = iv, Mode = CipherMode.CBC })
                 using (var memoryStream =
-                       new MemoryStream(Convert.FromBase64String(System.Convert.ToBase64String(HexStringToHex(cipherData)))))
+                       new MemoryStream(Convert.FromBase64String(System.Convert.ToBase64String(resultantArray))))
                 using (var cryptoStream =
                        new CryptoStream(memoryStream,
                            rijndaelManaged.CreateDecryptor(key, iv),
@@ -92,16 +98,6 @@ namespace CSharpDemo
                 return null;
             }
             // You may want to catch more exceptions here...
-        }
-
-        public byte[] HexStringToHex(string inputHex)
-        {
-            var resultantArray = new byte[inputHex.Length / 2];
-            for (var i = 0; i < resultantArray.Length; i++)
-            {
-                resultantArray[i] = System.Convert.ToByte(inputHex.Substring(i * 2, 2), 16);
-            }
-            return resultantArray;
         }
 
     }

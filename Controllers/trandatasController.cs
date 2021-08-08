@@ -10,6 +10,7 @@ using CSharpDemo.Models;
 using System.Net;
 using System.IO;
 using System.Net.Http;
+using Google.Protobuf.WellKnownTypes;
 
 namespace CSharpDemo.Controllers
 {
@@ -17,14 +18,10 @@ namespace CSharpDemo.Controllers
     {
         private readonly ApplicationDbContext _context;
 
-        BillDetails bill1 = new BillDetails("041000000000000000", "191215003212", "", "0.00", "16.00", "", "MOF");
-        BillDetails bill2 = new BillDetails("041000000000000000", "191208003137", "", "0.00", "16.00", "", "MOF");
-        string Bills;
+        trandata trandata = new trandata();
         Aes aes = new Aes();
 
-        public string endPoint;
-
-        public string httpMethod;
+        private string encryptedTrandata;
 
         public trandatasController(ApplicationDbContext context)
         {
@@ -41,33 +38,42 @@ namespace CSharpDemo.Controllers
         // POST: trandatas/sendRequest
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async void sendRequest([Bind("id,password,amt,currencycode,action,responseURL,errorURL,udf1,udf2,udf3,udf4,udf5,udf6,udf7,udf8,udf9,udf10,langid,payorIDType,payorIDNumber")] trandata trandata) {
-            Bills = "[" + bill1 + "," + bill2 + "]";
-            Console.WriteLine(Bills);
-            //trandata.trackid= "rdftcgvbhfgygbjghfyghgfx234567";
-            trandata.billDetails = Bills;
-            Console.WriteLine(aes.EncryptString(trandata.ToString()));
+        public ViewResult sendRequest([Bind("issuerAgencyId", "billingAccountId", "billingCycle", "dueAmount", "paidAmount", "billReferenceInfo", "agencyCode")] BillDetails billDetails) {
+            trandata.id = "IPAYhhcM5l5WVY5";
+            trandata.password = "dJu71!0WgUL$3$b";
+            trandata.action = "1";
+            trandata.amt = billDetails.paidAmount;
+            trandata.errorURL = "";
+            trandata.responseURL = "";
+            trandata.currencycode = "682";
+            trandata.payorIDNumber = "1234567891";
+            trandata.payorIDType = "NAT";
+            trandata.trackid= GenerateID();
+            trandata.billDetails = "["+billDetails+"]";
+            encryptedTrandata = aes.EncryptString(trandata.ToString());
+            Console.WriteLine(encryptedTrandata);
             Console.WriteLine(aes.Decrypt(aes.EncryptString(trandata.ToString())));
 
-            HttpClient httpClient = new HttpClient();
-            MultipartFormDataContent form = new MultipartFormDataContent();
+            ViewBag.trandata = encryptedTrandata;
 
-            form.Add(new StringContent(aes.EncryptString(trandata.ToString())), "trandata");
-            form.Add(new StringContent(trandata.id), "tranportalId");
-            form.Add(new StringContent(trandata.responseURL), "responseURL");
-            form.Add(new StringContent(trandata.errorURL), "errorURL");
-            HttpResponseMessage response = await httpClient.PostAsync("https://securepayments.alrajhibank.com.sa/pg/servlet/PaymentInitHTTPServlet", form);
+            //Response.Redirect("MerchantResponse?tranportalId=" + trandata.id +"&responseURL" + trandata.responseURL + "&errorURL" + trandata.errorURL + "&trandata" + encryptedTrandata);
+            
+            return View("MerchantResponse");
 
-            response.EnsureSuccessStatusCode();
-            httpClient.Dispose();
-            string sd = response.Content.ReadAsStringAsync().Result;
-
-            Console.WriteLine(sd);
-
-
-            //return aes.EncryptString(trandata.ToString());
         }
 
+        // GET: trandatas/movingToPaymentPage
+        public async Task<IActionResult> PaymentPage()
+        {
+            return View();
+        }
+
+
+        // POST: trandatas/movingToPaymentPage
+        public async Task<IActionResult> movingToPaymentPage(string id)
+        {
+            return View("PaymentPage", id);
+        }
 
         protected string GenerateID()
         {

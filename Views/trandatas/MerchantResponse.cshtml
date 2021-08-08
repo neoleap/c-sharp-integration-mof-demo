@@ -1,0 +1,48 @@
+﻿
+@model CSharpDemo.Models.trandata
+
+@{
+    ViewData["Title"] = "movingToPaymentPage";
+}
+
+<html>
+<script language="JavaScript">
+    function OnLoadEvent() {
+        document.form1.submit();
+    }
+</script>
+
+<BODY OnLoad="OnLoadEvent();">
+    <h1>Send Request</h1>
+
+    <h4>trandata</h4>
+    <hr />
+    <div class="row" OnLoad="OnLoadEvent();">
+        <div class="col-md-4">
+            <form name="form1" action="https://securepayments.alrajhibank.com.sa/pg/servlet/PaymentInitHTTPServlet" method="POST">
+                <input type="hidden" name="tranportalId" value="IPAYhhcM5l5WVY5" />
+                <input type="hidden" name="responseURL" value="https://localhost:44379/ResponseSuccess" />
+                <input type="hidden" name="errorURL" value="https://localhost:44379/ResponseError" />
+                <input type="hidden" name="trandata" value="@ViewBag.trandata" />
+            </form>
+            <div align="center" class="text12">
+                <br /><br />
+                Please wait your Transaction is getting processed...
+                <br /><br />
+                Please do not refresh / close the window
+                <br /><br />
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div>
+        <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </div>
+
+</BODY>
+</html>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
