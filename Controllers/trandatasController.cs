@@ -51,12 +51,8 @@ namespace CSharpDemo.Controllers
             trandata.trackid= GenerateID();
             trandata.billDetails = "["+billDetails+"]";
             encryptedTrandata = aes.EncryptString(trandata.ToString());
-            Console.WriteLine(encryptedTrandata);
-            Console.WriteLine(aes.Decrypt(aes.EncryptString(trandata.ToString())));
 
             ViewBag.trandata = encryptedTrandata;
-
-            //Response.Redirect("MerchantResponse?tranportalId=" + trandata.id +"&responseURL" + trandata.responseURL + "&errorURL" + trandata.errorURL + "&trandata" + encryptedTrandata);
             
             return View("MerchantResponse");
 
